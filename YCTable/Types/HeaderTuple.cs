@@ -12,8 +12,8 @@ namespace YCTable {
             this._node = node;
             this._header_type = "(" + string.Join(",", elements.Select(e => e.header_type)) + ")";
         }
-        public bool match(Table.ValueDescriptor value) {
-            if (value is Table.ValueTuple vt) {
+        public bool match(YCTable.ValueDescriptor value) {
+            if (value is YCTable.ValueTuple vt) {
                 if (elements.Count != vt.elements.Count) return false;
                 for (int i =0; i < elements.Count; i++) {
                     if (!elements[i].match(vt.elements[i])) return false;

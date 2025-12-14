@@ -13,8 +13,8 @@ namespace YCTable {
             this._node = node;
             this._header_type = name.ToLowerInvariant();
         }
-        public bool match(Table.ValueDescriptor value) {
-            if (value is Table.ValueBasic vb) {
+        public bool match(YCTable.ValueDescriptor value) {
+            if (value is YCTable.ValueBasic vb) {
                 var hv = name.ToLowerInvariant();
                 var vv = vb.name.ToLowerInvariant();
                 if (hv == vv) return true;

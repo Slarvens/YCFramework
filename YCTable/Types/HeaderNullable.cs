@@ -11,8 +11,8 @@ namespace YCTable {
             this._node = node;
             this._header_type = inner.header_type + "?";
         }
-        public bool match(Table.ValueDescriptor value) {
-            if (value is Table.ValueNull) return true;
+        public bool match(YCTable.ValueDescriptor value) {
+            if (value is YCTable.ValueNull) return true;
             return inner.match(value);
         }
     }

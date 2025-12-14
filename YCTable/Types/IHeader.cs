@@ -5,6 +5,6 @@ namespace YCTable {
         string? field_name { get; }
         string header_type { get; }
         Node? node { get; }
-        bool match(Table.ValueDescriptor value);
+        bool match(YCTable.ValueDescriptor value);
     }
 }

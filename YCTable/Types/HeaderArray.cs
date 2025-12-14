@@ -12,8 +12,8 @@ namespace YCTable {
  this._node = node;
  this._header_type = element.header_type + "[]";
  }
- public bool match(Table.ValueDescriptor value) {
- if (value is Table.ValueArray va) {
+ public bool match(YCTable.ValueDescriptor value) {
+ if (value is YCTable.ValueArray va) {
  foreach (var e in va.elements) {
  if (!element.match(e)) return false;
  }

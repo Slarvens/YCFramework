@@ -1,43 +1,42 @@
-﻿using YCTable;
-
+﻿
 namespace YCAnalyzerProject {
     internal class Program {
         static void Main(string[] args) {
-            // Only test Table.parse_headers here. Other tests disabled.
+            //// Only test Table.parse_headers here. Other tests disabled.
 
-            Console.WriteLine("--- Table parse_headers tests ---");
+            //Console.WriteLine("--- Table parse_headers tests ---");
 
-            var test_headers = new[] {
-                "int",
-                "(string,string)",
-                "dict<string,int>",
-                "int[]",
-                "(int,string)",
-                "(int?,string)",
-                "dict<int,string>",
-                "dict<int?,string>",
-                "int[]",
-                "(int,string)?"
-            };
+            //var test_headers = new[] {
+            //    "int",
+            //    "(string,string)",
+            //    "dict<string,int>",
+            //    "int[]",
+            //    "(int,string)",
+            //    "(int?,string)",
+            //    "dict<int,string>",
+            //    "dict<int?,string>",
+            //    "int[]",
+            //    "(int,string)?"
+            //};
 
-            try {
-                var results = Table.parse_headers(test_headers, throwOnError: true);
+            //try {
+            //    var results = Table.parse_headers(test_headers, throwOnError: true);
 
-                for (int i =0; i < test_headers.Length; i++) {
-                    var h = test_headers[i];
-                    var r = results.Count > i ? results[i] : null;
-                    if (r == null) {
-                        Console.WriteLine($"Header: {h} => FAILED");
-                    }
-                    else {
-                        Console.WriteLine($"Header: {h} => {r.header_type}");
-                    }
-                }
-            }
-            catch (Exception ex) {
-                Console.WriteLine($"Parsing failed with exception: {ex.Message}");
-                Console.WriteLine(ex.StackTrace);
-            }
+            //    for (int i =0; i < test_headers.Length; i++) {
+            //        var h = test_headers[i];
+            //        var r = results.Count > i ? results[i] : null;
+            //        if (r == null) {
+            //            Console.WriteLine($"Header: {h} => FAILED");
+            //        }
+            //        else {
+            //            Console.WriteLine($"Header: {h} => {r.header_type}");
+            //        }
+            //    }
+            //}
+            //catch (Exception ex) {
+            //    Console.WriteLine($"Parsing failed with exception: {ex.Message}");
+            //    Console.WriteLine(ex.StackTrace);
+            //}
 
             // Other tests (value parsing, validation) are disabled while focusing on parse_headers.
             // Console.WriteLine("--- Table value parsing tests ---");

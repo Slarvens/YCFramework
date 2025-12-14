@@ -1,11 +1,9 @@
-﻿using System.Linq;
-using YCAnalyzer;
+﻿using YCAnalyzer;
 using YCAnalyzer.Syntaxer;
 using YCSyntaxer;
 using YCTable.Handlers.Header;
-using YCTable.Handlers.Value;
 namespace YCTable {
-    public class Table {
+    public class YCTable {
         public static string value_rule_config = @"
  pair_list: pair ( ';' pair )*;
  pair: key_type '=' type_nonnull;
@@ -36,10 +34,6 @@ namespace YCTable {
  ";
 
  
-
-
-
-
         // Helper: parse value into a simple ValueDescriptor (reuse token-based lightweight parsing)
         public abstract record ValueDescriptor;
         public record ValueBasic(string name) : ValueDescriptor;
