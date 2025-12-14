@@ -1,17 +1,17 @@
-using System.Linq;
-using System.Collections.Generic;
+
 using YCAnalyzer.Syntaxer;
 using YCSyntaxer;
 
 namespace YCTable.Handlers.Header {
     public class HeaderTupleHandler : HeaderHandlerBase {
         public override string node_type => "header_tuple";
-        private readonly List<IHeader?> _collector;
-        public HeaderTupleHandler() : this(new List<IHeader?>()) { }
-        public HeaderTupleHandler(List<IHeader?> collector) { _collector = collector; }
+        private ExcelTable context;
+
+        public HeaderTupleHandler(ExcelTable context) {
+            this.context = context;
+        }
         public override void handle(Node node, AstProcessor ast_processor, int depth) {
             var td = build_node(node, ast_processor); 
-            _collector.Add(td); 
         }
         public override void log(Node node, AstProcessor ast_processor, int depth) {
             // suppressed

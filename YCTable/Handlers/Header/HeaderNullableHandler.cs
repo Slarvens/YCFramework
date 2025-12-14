@@ -1,19 +1,18 @@
-using System.Linq;
-using System.Collections.Generic;
+
 using YCAnalyzer.Syntaxer;
 using YCSyntaxer;
 
 namespace YCTable.Handlers.Header {
     public class HeaderNullableHandler : HeaderHandlerBase {
         public override string node_type => "header_nullable";
-        private readonly List<IHeader?> _collector;
+        private ExcelTable context;
 
-        public HeaderNullableHandler() : this(new List<IHeader?>()) { }
-        public HeaderNullableHandler(List<IHeader?> collector) { _collector = collector; }
+        public HeaderNullableHandler(ExcelTable context) {
+            this.context = context;
+        }
 
         public override void handle(Node node, AstProcessor ast_processor, int depth) {
             var td = build_node(node, ast_processor);
-            _collector.Add(td);
         }
 
         public override IHeader build_node(Node node, AstProcessor? ap = null) {

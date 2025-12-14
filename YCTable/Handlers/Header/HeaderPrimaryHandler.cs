@@ -6,16 +6,15 @@ using YCSyntaxer;
 namespace YCTable.Handlers.Header {
     public class HeaderPrimaryHandler : HeaderHandlerBase {
         public override string node_type => "header_primary";
-        private readonly List<IHeader?> _collector;
+        private ExcelTable context;
 
-        public HeaderPrimaryHandler() : this(new List<IHeader?>()) { }
-        public HeaderPrimaryHandler(List<IHeader?> collector) {
-            _collector = collector;
+        public HeaderPrimaryHandler(ExcelTable context) { 
+            this.context = context;
         }
+      
 
         public override void handle(Node node, AstProcessor ast_processor, int depth) {
             var td = build_node(node, ast_processor);
-            _collector.Add(td);
         }
 
 

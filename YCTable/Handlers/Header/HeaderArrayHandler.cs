@@ -1,20 +1,17 @@
-using System.Linq;
-using System.Collections.Generic;
+
 using YCAnalyzer.Syntaxer;
 using YCSyntaxer;
 
 namespace YCTable.Handlers.Header {
     public class HeaderArrayHandler : HeaderHandlerBase {
         public override string node_type => "header_array";
-        private readonly List<IHeader?> _collector;
-        private AstProcessor ast_processor;
+        private ExcelTable context;
 
-        public HeaderArrayHandler() : this(new List<IHeader?>()) { }
-        public HeaderArrayHandler(List<IHeader?> collector) { _collector = collector; }
+        public HeaderArrayHandler(ExcelTable context) {
+            this.context = context;
+        }
         public override void handle(Node node, AstProcessor ast_processor, int depth) {
-            this.ast_processor = ast_processor;
             var td = build_node(node, ast_processor);
-            _collector.Add(td); 
         }
         public override void log(Node node, AstProcessor ast_processor, int depth) {
             // suppressed
