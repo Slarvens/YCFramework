@@ -1,6 +1,7 @@
-
+using System.Linq;
 using YCAnalyzer.Syntaxer;
 using YCSyntaxer;
+using YCTable.Types;
 
 namespace YCTable.Handlers.Header {
     public class HeaderTupleHandler : HeaderHandlerBase {
@@ -17,7 +18,7 @@ namespace YCTable.Handlers.Header {
             // suppressed
         }
 
-        public override IHeader build_node(Node node, AstProcessor? ap = null) {
+        public override IHeader build_node(Node node, AstProcessor ap) {
             if (node == null) return new HeaderBasic("unknown", null);
             var elems = node.get_real_children()
             .Where(c => !(c.token != null && (c.token.lexeme == "(" || c.token.lexeme == ")" || c.token.lexeme == ",")))

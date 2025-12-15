@@ -13,15 +13,5 @@ namespace YCTable {
             this._node = node;
             this._header_type = $"dict<{key_type.header_type},{value_type.header_type}>";
         }
-        public bool match(YCTable.ValueDescriptor value) {
-            if (value is YCTable.ValueDict vt) {
-                foreach (var (k, v) in vt.Pairs) {
-                    if (!key_type.match(k)) return false;
-                    if (!value_type.match(v)) return false;
-                }
-                return true;
-            }
-            return false;
-        }
     }
 }

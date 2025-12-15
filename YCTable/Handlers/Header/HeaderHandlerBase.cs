@@ -37,9 +37,9 @@ namespace YCTable.Handlers.Header {
  }
 
  // Build a header node (instance method, snake_case)
- public abstract IHeader build_node(Node node, AstProcessor? ap = null);
+ public abstract IHeader build_node(Node node, AstProcessor ap );
 
  // Per-handler validation hook. Default: no validation. Handlers override to enforce rules and throw when invalid.
- protected virtual void validate_node(Node node, AstProcessor? ap = null) { }
+ protected virtual void validate_node(Node node, AstProcessor ap ) { }
  }
 }

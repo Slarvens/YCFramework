@@ -1,4 +1,5 @@
 using System.Linq;
+using YCTable.Types;
 
 namespace YCTable {
     public class HeaderBasic : IHeader {
@@ -12,17 +13,6 @@ namespace YCTable {
             this.name = name;
             this._node = node;
             this._header_type = name.ToLowerInvariant();
-        }
-        public bool match(YCTable.ValueDescriptor value) {
-            if (value is YCTable.ValueBasic vb) {
-                var hv = name.ToLowerInvariant();
-                var vv = vb.name.ToLowerInvariant();
-                if (hv == vv) return true;
-                var numeric = new HashSet<string> { "integer", "long", "float", "double" };
-                if (numeric.Contains(hv) && numeric.Contains(vv)) return true;
-                if (hv == "string" && (vv == "string" || vv == "identifier")) return true;
-            }
-            return false;
         }
     }
 }

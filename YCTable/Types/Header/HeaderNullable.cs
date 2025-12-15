@@ -1,18 +1,15 @@
-using YCTable.Types;
-
 namespace YCTable {
- public class HeaderArray : IHeader {
- public IHeader element { get; }
+ public class HeaderNullable : IHeader {
+ public IHeader inner { get; }
  public string? field_name => null;
  private readonly string _header_type;
  public string header_type => _header_type;
  private readonly global::YCSyntaxer.Node? _node;
  public global::YCSyntaxer.Node? node => _node;
- public HeaderArray(IHeader element, global::YCSyntaxer.Node? node)
- {
- this.element = element;
+ public HeaderNullable(IHeader inner, global::YCSyntaxer.Node? node) {
+ this.inner = inner;
  this._node = node;
- this._header_type = element.header_type + "[]";
+ this._header_type = inner.header_type + "?";
  }
  }
 }

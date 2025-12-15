@@ -11,7 +11,7 @@ namespace YCTable {
  public HeaderTuple(System.Collections.Generic.List<IHeader> elements, global::YCSyntaxer.Node? node) {
  this.elements = elements;
  this._node = node;
- this._header_type = $"tuple[{string.Join(",", elements.Select(e => e.header_type))}]";
+ this._header_type = $"({string.Join(",", elements.Select(e => e.header_type))})";
  }
  }
 }

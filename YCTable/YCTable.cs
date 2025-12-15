@@ -1,7 +1,8 @@
-﻿
+﻿using System;
+using System.IO;
 
 namespace YCTable {
-    public class YCTable {
+    public partial class YCTable {
 
         public static void load_from_path(string file_path) {
             if (string.IsNullOrWhiteSpace(file_path)) throw new ArgumentException("file_path is null or empty", nameof(file_path));

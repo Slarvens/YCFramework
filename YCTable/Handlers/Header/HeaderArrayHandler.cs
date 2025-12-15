@@ -1,4 +1,4 @@
-
+using System.Linq;
 using YCAnalyzer.Syntaxer;
 using YCSyntaxer;
 
@@ -22,7 +22,7 @@ namespace YCTable.Handlers.Header {
             if (node == null) return new HeaderBasic("unknown", null);
             // find element child (skip '?', '[' ,']')
             var child = node.get_real_children().FirstOrDefault(c => !(c.token != null && (c.token.lexeme == "[" || c.token.lexeme == "]")));
-            IHeader elem = child != null ? child.build_child(ap ?? this.ast_processor) : new HeaderBasic("unknown", null);
+            IHeader elem = child != null ? child.build_child(ap) : new HeaderBasic("unknown", null);
             IHeader res = new HeaderArray(elem, node);
             // nullable wrapper
             if (node.has_nullable() && !(res is HeaderNullable)) {

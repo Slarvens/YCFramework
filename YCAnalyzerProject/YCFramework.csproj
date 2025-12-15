@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ParseInvocation\YCParseInvocation.csproj" />
     <ProjectReference Include="..\YCAnalyzer\YCAnalyzer.csproj" />
+    <ProjectReference Include="..\YCParseInvocation\YCParseInvocation.csproj" />
     <ProjectReference Include="..\YCTable\YCTable.csproj" />
   </ItemGroup>
 
