@@ -1,7 +1,6 @@
 using System.Linq;
 using YCAnalyzer.Syntaxer;
 using YCSyntaxer;
-using YCTable.Types;
 
 namespace YCTable.Handlers.Header {
     public class HeaderTupleHandler : HeaderHandlerBase {

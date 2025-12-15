@@ -1,4 +1,3 @@
-using YCTable.Types;
 
 namespace YCTable {
  public class HeaderArray : IHeader {

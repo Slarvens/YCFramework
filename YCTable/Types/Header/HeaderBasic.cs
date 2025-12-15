@@ -1,5 +1,4 @@
 using System.Linq;
-using YCTable.Types;
 
 namespace YCTable {
  public class HeaderBasic : IHeader {
